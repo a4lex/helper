@@ -30,5 +30,6 @@
 			os.Exit(0)
 		}
 	}
+	...
 	someVar = h.CFG.String("some.var", "def value")
 	...
