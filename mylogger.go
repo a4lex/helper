@@ -51,8 +51,10 @@ func LogInit(logFile string, logLevel int) error {
 }
 
 func LogRelease() {
-	logInstance.verbose = 0
-	logInstance.file.Close()
+	if logInstance != nil {
+		logInstance.verbose = 0
+		logInstance.file.Close()
+	}
 }
 
 func Fatal(str string, v ...interface{}) { log(FATAL, str, v...) }
