@@ -53,6 +53,16 @@ func ConfigInit(configFile, configName string) error {
 
 // }
 
+// KeyExists returns true if the key exists in the config
+// @key: the key of the node
+func (c *myConfig) KeyExists(key string) bool {
+	if _, err := c.value(key); err == nil {
+		return true
+	}
+
+	return false
+}
+
 // String returns the string value of the node.
 // If the node does not exist, it returns the default value.
 // @key: the key of the node
